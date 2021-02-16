@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1ad7639454474a988c08977b602aab01" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.VDC_ELEVATIONS" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VDC_FILE_MAPPINGS" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VDC_FILES" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VDC_PROJECTS" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VDC_TRADE_INFO" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <AssociationConnector Association="Model.VDC_ELEVATIONS_PROJECT_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VDC_FILE_MAPPIN_PROJECT_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VDC_FILES_PROJECT_ID_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VDC_TRADE_INFO_PROJECT_ID_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="VDC_ELEVATIONS">
+          <Key>
+            <PropertyRef Name="VDC_ELEVATION_ID" />
+          </Key>
+          <Property Name="VDC_ELEVATION_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROJECT_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="ROW_VERSION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ELEV_PROJECT_NUMBER" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ELEV_LEVEL" Type="varchar2" MaxLength="4000" Nullable="false" />
+          <Property Name="ELEV_ELEVATION" Type="varchar2" MaxLength="4000" />
+          <Property Name="ELEV_REVIT_ELEVATION" Type="varchar2" MaxLength="4000" />
+          <Property Name="ELEV_LEVEL_ABOVE" Type="varchar2" MaxLength="4000" />
+          <Property Name="CREATED" Type="date" Nullable="false" />
+          <Property Name="CREATED_BY" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="UPDATED" Type="date" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="ELEV_LEVEL_BELOW" Type="varchar2" MaxLength="4000" />
+          <Property Name="ELEV_JCC_GRID" Type="varchar2" MaxLength="4000" />
+          <Property Name="ELEV_VDC_MASTER" Type="varchar2" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="VDC_FILE_MAPPINGS">
+          <Key>
+            <PropertyRef Name="VDC_FILE_MAPPING_ID" />
+          </Key>
+          <Property Name="VDC_FILE_MAPPING_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROJECT_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="ROW_VERSION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MAP_PROJECT_NUMBER" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MAP_FTP_SOURCE" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="MAP_COMPANY_ID" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="MAP_PROJECT_ID" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="MAP_TYPE" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="MAPPING_ID" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="CREATED" Type="date" Nullable="false" />
+          <Property Name="CREATED_BY" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="UPDATED" Type="date" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VDC_FILES">
+          <Key>
+            <PropertyRef Name="VDC_FILE_ID" />
+          </Key>
+          <Property Name="VDC_FILE_ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="None" />
+          <Property Name="PROJECT_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="ROW_VERSION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FILE_PROJECT_NUMBER" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FILE_LEVEL" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="FILE_TRADE_ABBREVIATION" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="FILE_INTERNAL_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="FILE_EXTERNAL_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="FILE_EXTENSION" Type="varchar2" MaxLength="255" />
+          <Property Name="FILE_IS_PARENT" Type="number" Precision="38" Scale="0" />
+          <Property Name="FILE_ACTION" Type="varchar2" MaxLength="255" />
+          <Property Name="FILE_PARENT_NAME" Type="varchar2" MaxLength="255" />
+          <Property Name="FILE_SCRIPTS" Type="varchar2" MaxLength="255" />
+          <Property Name="FILE_LAST_PROCESSED" Type="date" />
+          <Property Name="CREATED" Type="date" Nullable="false" />
+          <Property Name="CREATED_BY" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="UPDATED" Type="date" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="FILE_STATUS" Type="varchar2" MaxLength="25" />
+          <Property Name="FILE_NOTE" Type="varchar2" MaxLength="4000" />
+          <Property Name="FILE_VERSION" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="VDC_PROJECTS">
+          <Key>
+            <PropertyRef Name="VDC_PROJECT_ID" />
+          </Key>
+          <Property Name="VDC_PROJECT_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ROW_VERSION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROJECT_NUMBER" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROJECT_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="JOB_NAME_MULTILINE" Type="varchar2" MaxLength="255" />
+          <Property Name="ADDRESS" Type="varchar2" MaxLength="255" />
+          <Property Name="INTERNAL_EMAIL_GROUP" Type="varchar2" MaxLength="255" />
+          <Property Name="EXTERNAL_EMAIL_GROUP" Type="varchar2" MaxLength="255" />
+          <Property Name="GC" Type="varchar2" MaxLength="255" />
+          <Property Name="PRIMARY_FTP" Type="varchar2" MaxLength="255" />
+          <Property Name="SECONDARY_FTP" Type="varchar2" MaxLength="255" />
+          <Property Name="CREATED" Type="date" Nullable="false" />
+          <Property Name="CREATED_BY" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="UPDATED" Type="date" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VDC_TRADE_INFO">
+          <Key>
+            <PropertyRef Name="VDC_TRADE_INFO_ID" />
+          </Key>
+          <Property Name="VDC_TRADE_INFO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROJECT_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="ROW_VERSION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TI_PROJECT_NUMBER" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TI_TRADE_ABBREVIATION" Type="varchar2" MaxLength="4000" Nullable="false" />
+          <Property Name="TI_OWNED" Type="number" Precision="38" Scale="0" />
+          <Property Name="TI_TRADE_NAME" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="TI_SUBDIRECTORY" Type="varchar2" MaxLength="4000" />
+          <Property Name="TI_COLOR" Type="varchar2" MaxLength="4000" />
+          <Property Name="TI_XTC" Type="number" Precision="38" Scale="0" />
+          <Property Name="TI_ELEVATION_TO_USE" Type="varchar2" MaxLength="4000" />
+          <Property Name="CREATED" Type="date" Nullable="false" />
+          <Property Name="CREATED_BY" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="UPDATED" Type="date" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="varchar2" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="VDC_ELEVATIONS_PROJECT_ID_FK">
+          <End Role="VDC_PROJECTS" Type="Self.VDC_PROJECTS" Multiplicity="0..1" />
+          <End Role="VDC_ELEVATIONS" Type="Self.VDC_ELEVATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VDC_PROJECTS">
+              <PropertyRef Name="VDC_PROJECT_ID" />
+            </Principal>
+            <Dependent Role="VDC_ELEVATIONS">
+              <PropertyRef Name="PROJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VDC_FILE_MAPPIN_PROJECT_ID_FK">
+          <End Role="VDC_PROJECTS" Type="Self.VDC_PROJECTS" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VDC_FILE_MAPPINGS" Type="Self.VDC_FILE_MAPPINGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VDC_PROJECTS">
+              <PropertyRef Name="VDC_PROJECT_ID" />
+            </Principal>
+            <Dependent Role="VDC_FILE_MAPPINGS">
+              <PropertyRef Name="PROJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VDC_FILES_PROJECT_ID_FK">
+          <End Role="VDC_PROJECTS" Type="Self.VDC_PROJECTS" Multiplicity="0..1" />
+          <End Role="VDC_FILES" Type="Self.VDC_FILES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VDC_PROJECTS">
+              <PropertyRef Name="VDC_PROJECT_ID" />
+            </Principal>
+            <Dependent Role="VDC_FILES">
+              <PropertyRef Name="PROJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VDC_TRADE_INFO_PROJECT_ID_FK">
+          <End Role="VDC_PROJECTS" Type="Self.VDC_PROJECTS" Multiplicity="0..1" />
+          <End Role="VDC_TRADE_INFO" Type="Self.VDC_TRADE_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VDC_PROJECTS">
+              <PropertyRef Name="VDC_PROJECT_ID" />
+            </Principal>
+            <Dependent Role="VDC_TRADE_INFO">
+              <PropertyRef Name="PROJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="VDC_ELEVATIONS" EntityType="Self.VDC_ELEVATIONS" Schema="AIS_DEV" store:Type="Tables" />
+          <EntitySet Name="VDC_FILE_MAPPINGS" EntityType="Self.VDC_FILE_MAPPINGS" Schema="AIS_DEV" store:Type="Tables" />
+          <EntitySet Name="VDC_FILES" EntityType="Self.VDC_FILES" Schema="AIS_DEV" store:Type="Tables" />
+          <EntitySet Name="VDC_PROJECTS" EntityType="Self.VDC_PROJECTS" Schema="AIS_DEV" store:Type="Tables" />
+          <EntitySet Name="VDC_TRADE_INFO" EntityType="Self.VDC_TRADE_INFO" Schema="AIS_DEV" store:Type="Tables" />
+          <AssociationSet Name="VDC_ELEVATIONS_PROJECT_ID_FK" Association="Self.VDC_ELEVATIONS_PROJECT_ID_FK">
+            <End Role="VDC_PROJECTS" EntitySet="VDC_PROJECTS" />
+            <End Role="VDC_ELEVATIONS" EntitySet="VDC_ELEVATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="VDC_FILE_MAPPIN_PROJECT_ID_FK" Association="Self.VDC_FILE_MAPPIN_PROJECT_ID_FK">
+            <End Role="VDC_PROJECTS" EntitySet="VDC_PROJECTS" />
+            <End Role="VDC_FILE_MAPPINGS" EntitySet="VDC_FILE_MAPPINGS" />
+          </AssociationSet>
+          <AssociationSet Name="VDC_FILES_PROJECT_ID_FK" Association="Self.VDC_FILES_PROJECT_ID_FK">
+            <End Role="VDC_PROJECTS" EntitySet="VDC_PROJECTS" />
+            <End Role="VDC_FILES" EntitySet="VDC_FILES" />
+          </AssociationSet>
+          <AssociationSet Name="VDC_TRADE_INFO_PROJECT_ID_FK" Association="Self.VDC_TRADE_INFO_PROJECT_ID_FK">
+            <End Role="VDC_PROJECTS" EntitySet="VDC_PROJECTS" />
+            <End Role="VDC_TRADE_INFO" EntitySet="VDC_TRADE_INFO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="VDC_ELEVATIONS">
+          <Key>
+            <PropertyRef Name="VDC_ELEVATION_ID" />
+          </Key>
+          <Property Name="VDC_ELEVATION_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROJECT_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ROW_VERSION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ELEV_PROJECT_NUMBER" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ELEV_LEVEL" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ELEV_ELEVATION" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ELEV_REVIT_ELEVATION" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ELEV_LEVEL_ABOVE" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED" Type="DateTime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UPDATED" Type="DateTime" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ELEV_LEVEL_BELOW" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ELEV_JCC_GRID" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="ELEV_VDC_MASTER" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VDC_PROJECTS" Relationship="Self.VDC_ELEVATIONS_PROJECT_ID_FK" FromRole="VDC_ELEVATIONS" ToRole="VDC_PROJECTS" />
+        </EntityType>
+        <EntityType Name="VDC_FILE_MAPPINGS">
+          <Key>
+            <PropertyRef Name="VDC_FILE_MAPPING_ID" />
+          </Key>
+          <Property Name="VDC_FILE_MAPPING_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROJECT_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ROW_VERSION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MAP_PROJECT_NUMBER" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MAP_FTP_SOURCE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAP_COMPANY_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAP_PROJECT_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAP_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAPPING_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATED" Type="DateTime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UPDATED" Type="DateTime" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="VDC_PROJECTS" Relationship="Self.VDC_FILE_MAPPIN_PROJECT_ID_FK" FromRole="VDC_FILE_MAPPINGS" ToRole="VDC_PROJECTS" />
+        </EntityType>
+        <EntityType Name="VDC_FILES">
+          <Key>
+            <PropertyRef Name="VDC_FILE_ID" />
+          </Key>
+          <Property Name="VDC_FILE_ID" Type="Decimal" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="PROJECT_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ROW_VERSION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FILE_PROJECT_NUMBER" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FILE_LEVEL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FILE_TRADE_ABBREVIATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FILE_INTERNAL_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_EXTERNAL_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_EXTENSION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_IS_PARENT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="FILE_ACTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_PARENT_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_SCRIPTS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_LAST_PROCESSED" Type="DateTime" />
+          <Property Name="CREATED" Type="DateTime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UPDATED" Type="DateTime" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FILE_STATUS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_NOTE" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="FILE_VERSION" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="VDC_PROJECTS" Relationship="Self.VDC_FILES_PROJECT_ID_FK" FromRole="VDC_FILES" ToRole="VDC_PROJECTS" />
+        </EntityType>
+        <EntityType Name="VDC_PROJECTS">
+          <Key>
+            <PropertyRef Name="VDC_PROJECT_ID" />
+          </Key>
+          <Property Name="VDC_PROJECT_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ROW_VERSION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROJECT_NUMBER" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROJECT_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOB_NAME_MULTILINE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="INTERNAL_EMAIL_GROUP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EXTERNAL_EMAIL_GROUP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PRIMARY_FTP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SECONDARY_FTP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED" Type="DateTime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UPDATED" Type="DateTime" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="VDC_ELEVATIONS" Relationship="Self.VDC_ELEVATIONS_PROJECT_ID_FK" FromRole="VDC_PROJECTS" ToRole="VDC_ELEVATIONS" />
+          <NavigationProperty Name="VDC_FILE_MAPPINGS" Relationship="Self.VDC_FILE_MAPPIN_PROJECT_ID_FK" FromRole="VDC_PROJECTS" ToRole="VDC_FILE_MAPPINGS" />
+          <NavigationProperty Name="VDC_FILES" Relationship="Self.VDC_FILES_PROJECT_ID_FK" FromRole="VDC_PROJECTS" ToRole="VDC_FILES" />
+          <NavigationProperty Name="VDC_TRADE_INFO" Relationship="Self.VDC_TRADE_INFO_PROJECT_ID_FK" FromRole="VDC_PROJECTS" ToRole="VDC_TRADE_INFO" />
+        </EntityType>
+        <EntityType Name="VDC_TRADE_INFO">
+          <Key>
+            <PropertyRef Name="VDC_TRADE_INFO_ID" />
+          </Key>
+          <Property Name="VDC_TRADE_INFO_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROJECT_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ROW_VERSION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TI_PROJECT_NUMBER" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TI_TRADE_ABBREVIATION" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TI_OWNED" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TI_TRADE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TI_SUBDIRECTORY" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="TI_COLOR" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="TI_XTC" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TI_ELEVATION_TO_USE" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED" Type="DateTime" Nullable="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UPDATED" Type="DateTime" Nullable="false" />
+          <Property Name="UPDATED_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="VDC_PROJECTS" Relationship="Self.VDC_TRADE_INFO_PROJECT_ID_FK" FromRole="VDC_TRADE_INFO" ToRole="VDC_PROJECTS" />
+        </EntityType>
+        <Association Name="VDC_ELEVATIONS_PROJECT_ID_FK">
+          <End Role="VDC_PROJECTS" Type="Self.VDC_PROJECTS" Multiplicity="0..1" />
+          <End Role="VDC_ELEVATIONS" Type="Self.VDC_ELEVATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VDC_PROJECTS">
+              <PropertyRef Name="VDC_PROJECT_ID" />
+            </Principal>
+            <Dependent Role="VDC_ELEVATIONS">
+              <PropertyRef Name="PROJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VDC_FILE_MAPPIN_PROJECT_ID_FK">
+          <End Role="VDC_PROJECTS" Type="Self.VDC_PROJECTS" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VDC_FILE_MAPPINGS" Type="Self.VDC_FILE_MAPPINGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VDC_PROJECTS">
+              <PropertyRef Name="VDC_PROJECT_ID" />
+            </Principal>
+            <Dependent Role="VDC_FILE_MAPPINGS">
+              <PropertyRef Name="PROJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VDC_FILES_PROJECT_ID_FK">
+          <End Role="VDC_PROJECTS" Type="Self.VDC_PROJECTS" Multiplicity="0..1" />
+          <End Role="VDC_FILES" Type="Self.VDC_FILES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VDC_PROJECTS">
+              <PropertyRef Name="VDC_PROJECT_ID" />
+            </Principal>
+            <Dependent Role="VDC_FILES">
+              <PropertyRef Name="PROJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VDC_TRADE_INFO_PROJECT_ID_FK">
+          <End Role="VDC_PROJECTS" Type="Self.VDC_PROJECTS" Multiplicity="0..1" />
+          <End Role="VDC_TRADE_INFO" Type="Self.VDC_TRADE_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VDC_PROJECTS">
+              <PropertyRef Name="VDC_PROJECT_ID" />
+            </Principal>
+            <Dependent Role="VDC_TRADE_INFO">
+              <PropertyRef Name="PROJECT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AIS_DEV" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="VDC_ELEVATIONS" EntityType="Self.VDC_ELEVATIONS" />
+          <EntitySet Name="VDC_FILE_MAPPINGS" EntityType="Self.VDC_FILE_MAPPINGS" />
+          <EntitySet Name="VDC_FILES" EntityType="Self.VDC_FILES" />
+          <EntitySet Name="VDC_PROJECTS" EntityType="Self.VDC_PROJECTS" />
+          <EntitySet Name="VDC_TRADE_INFO" EntityType="Self.VDC_TRADE_INFO" />
+          <AssociationSet Name="VDC_ELEVATIONS_PROJECT_ID_FK" Association="Self.VDC_ELEVATIONS_PROJECT_ID_FK">
+            <End Role="VDC_PROJECTS" EntitySet="VDC_PROJECTS" />
+            <End Role="VDC_ELEVATIONS" EntitySet="VDC_ELEVATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="VDC_FILE_MAPPIN_PROJECT_ID_FK" Association="Self.VDC_FILE_MAPPIN_PROJECT_ID_FK">
+            <End Role="VDC_PROJECTS" EntitySet="VDC_PROJECTS" />
+            <End Role="VDC_FILE_MAPPINGS" EntitySet="VDC_FILE_MAPPINGS" />
+          </AssociationSet>
+          <AssociationSet Name="VDC_FILES_PROJECT_ID_FK" Association="Self.VDC_FILES_PROJECT_ID_FK">
+            <End Role="VDC_PROJECTS" EntitySet="VDC_PROJECTS" />
+            <End Role="VDC_FILES" EntitySet="VDC_FILES" />
+          </AssociationSet>
+          <AssociationSet Name="VDC_TRADE_INFO_PROJECT_ID_FK" Association="Self.VDC_TRADE_INFO_PROJECT_ID_FK">
+            <End Role="VDC_PROJECTS" EntitySet="VDC_PROJECTS" />
+            <End Role="VDC_TRADE_INFO" EntitySet="VDC_TRADE_INFO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="AIS_DEV">
+          <EntitySetMapping Name="VDC_ELEVATIONS">
+            <EntityTypeMapping TypeName="Model.VDC_ELEVATIONS">
+              <MappingFragment StoreEntitySet="VDC_ELEVATIONS">
+                <ScalarProperty Name="VDC_ELEVATION_ID" ColumnName="VDC_ELEVATION_ID" />
+                <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+                <ScalarProperty Name="ROW_VERSION" ColumnName="ROW_VERSION" />
+                <ScalarProperty Name="ELEV_PROJECT_NUMBER" ColumnName="ELEV_PROJECT_NUMBER" />
+                <ScalarProperty Name="ELEV_LEVEL" ColumnName="ELEV_LEVEL" />
+                <ScalarProperty Name="ELEV_ELEVATION" ColumnName="ELEV_ELEVATION" />
+                <ScalarProperty Name="ELEV_REVIT_ELEVATION" ColumnName="ELEV_REVIT_ELEVATION" />
+                <ScalarProperty Name="ELEV_LEVEL_ABOVE" ColumnName="ELEV_LEVEL_ABOVE" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="ELEV_LEVEL_BELOW" ColumnName="ELEV_LEVEL_BELOW" />
+                <ScalarProperty Name="ELEV_JCC_GRID" ColumnName="ELEV_JCC_GRID" />
+                <ScalarProperty Name="ELEV_VDC_MASTER" ColumnName="ELEV_VDC_MASTER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VDC_FILE_MAPPINGS">
+            <EntityTypeMapping TypeName="Model.VDC_FILE_MAPPINGS">
+              <MappingFragment StoreEntitySet="VDC_FILE_MAPPINGS">
+                <ScalarProperty Name="VDC_FILE_MAPPING_ID" ColumnName="VDC_FILE_MAPPING_ID" />
+                <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+                <ScalarProperty Name="ROW_VERSION" ColumnName="ROW_VERSION" />
+                <ScalarProperty Name="MAP_PROJECT_NUMBER" ColumnName="MAP_PROJECT_NUMBER" />
+                <ScalarProperty Name="MAP_FTP_SOURCE" ColumnName="MAP_FTP_SOURCE" />
+                <ScalarProperty Name="MAP_COMPANY_ID" ColumnName="MAP_COMPANY_ID" />
+                <ScalarProperty Name="MAP_PROJECT_ID" ColumnName="MAP_PROJECT_ID" />
+                <ScalarProperty Name="MAP_TYPE" ColumnName="MAP_TYPE" />
+                <ScalarProperty Name="MAPPING_ID" ColumnName="MAPPING_ID" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VDC_FILES">
+            <EntityTypeMapping TypeName="Model.VDC_FILES">
+              <MappingFragment StoreEntitySet="VDC_FILES">
+                <ScalarProperty Name="VDC_FILE_ID" ColumnName="VDC_FILE_ID" />
+                <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+                <ScalarProperty Name="ROW_VERSION" ColumnName="ROW_VERSION" />
+                <ScalarProperty Name="FILE_PROJECT_NUMBER" ColumnName="FILE_PROJECT_NUMBER" />
+                <ScalarProperty Name="FILE_LEVEL" ColumnName="FILE_LEVEL" />
+                <ScalarProperty Name="FILE_TRADE_ABBREVIATION" ColumnName="FILE_TRADE_ABBREVIATION" />
+                <ScalarProperty Name="FILE_INTERNAL_NAME" ColumnName="FILE_INTERNAL_NAME" />
+                <ScalarProperty Name="FILE_EXTERNAL_NAME" ColumnName="FILE_EXTERNAL_NAME" />
+                <ScalarProperty Name="FILE_EXTENSION" ColumnName="FILE_EXTENSION" />
+                <ScalarProperty Name="FILE_IS_PARENT" ColumnName="FILE_IS_PARENT" />
+                <ScalarProperty Name="FILE_ACTION" ColumnName="FILE_ACTION" />
+                <ScalarProperty Name="FILE_PARENT_NAME" ColumnName="FILE_PARENT_NAME" />
+                <ScalarProperty Name="FILE_SCRIPTS" ColumnName="FILE_SCRIPTS" />
+                <ScalarProperty Name="FILE_LAST_PROCESSED" ColumnName="FILE_LAST_PROCESSED" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="FILE_STATUS" ColumnName="FILE_STATUS" />
+                <ScalarProperty Name="FILE_NOTE" ColumnName="FILE_NOTE" />
+                <ScalarProperty Name="FILE_VERSION" ColumnName="FILE_VERSION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VDC_PROJECTS">
+            <EntityTypeMapping TypeName="Model.VDC_PROJECTS">
+              <MappingFragment StoreEntitySet="VDC_PROJECTS">
+                <ScalarProperty Name="VDC_PROJECT_ID" ColumnName="VDC_PROJECT_ID" />
+                <ScalarProperty Name="ROW_VERSION" ColumnName="ROW_VERSION" />
+                <ScalarProperty Name="PROJECT_NUMBER" ColumnName="PROJECT_NUMBER" />
+                <ScalarProperty Name="PROJECT_NAME" ColumnName="PROJECT_NAME" />
+                <ScalarProperty Name="JOB_NAME_MULTILINE" ColumnName="JOB_NAME_MULTILINE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="INTERNAL_EMAIL_GROUP" ColumnName="INTERNAL_EMAIL_GROUP" />
+                <ScalarProperty Name="EXTERNAL_EMAIL_GROUP" ColumnName="EXTERNAL_EMAIL_GROUP" />
+                <ScalarProperty Name="GC" ColumnName="GC" />
+                <ScalarProperty Name="PRIMARY_FTP" ColumnName="PRIMARY_FTP" />
+                <ScalarProperty Name="SECONDARY_FTP" ColumnName="SECONDARY_FTP" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VDC_TRADE_INFO">
+            <EntityTypeMapping TypeName="Model.VDC_TRADE_INFO">
+              <MappingFragment StoreEntitySet="VDC_TRADE_INFO">
+                <ScalarProperty Name="VDC_TRADE_INFO_ID" ColumnName="VDC_TRADE_INFO_ID" />
+                <ScalarProperty Name="PROJECT_ID" ColumnName="PROJECT_ID" />
+                <ScalarProperty Name="ROW_VERSION" ColumnName="ROW_VERSION" />
+                <ScalarProperty Name="TI_PROJECT_NUMBER" ColumnName="TI_PROJECT_NUMBER" />
+                <ScalarProperty Name="TI_TRADE_ABBREVIATION" ColumnName="TI_TRADE_ABBREVIATION" />
+                <ScalarProperty Name="TI_OWNED" ColumnName="TI_OWNED" />
+                <ScalarProperty Name="TI_TRADE_NAME" ColumnName="TI_TRADE_NAME" />
+                <ScalarProperty Name="TI_SUBDIRECTORY" ColumnName="TI_SUBDIRECTORY" />
+                <ScalarProperty Name="TI_COLOR" ColumnName="TI_COLOR" />
+                <ScalarProperty Name="TI_XTC" ColumnName="TI_XTC" />
+                <ScalarProperty Name="TI_ELEVATION_TO_USE" ColumnName="TI_ELEVATION_TO_USE" />
+                <ScalarProperty Name="CREATED" ColumnName="CREATED" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED" ColumnName="UPDATED" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
